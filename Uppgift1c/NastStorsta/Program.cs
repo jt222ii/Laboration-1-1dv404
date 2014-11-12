@@ -30,13 +30,13 @@ namespace NastStorsta
                     { 
                         highest = userInput;
                         nextHighest = userInput;
-                        Console.WriteLine("näst störst: Finns endast ett värde!");
+                    //    Console.WriteLine("näst störst: Finns endast ett värde!");
                     }
                     else if (userInput == highest && nextHighest == highest)  // för att man inte ska kunna skriva in 12 rakt igenom och den säger att 12 är näst störst.
                     {                                                         //När nextHighest har fått ett annat värde än highest körs inte längre denna if sats.
                         nextHighest = highest;
                         highest = userInput;
-                        Console.WriteLine("finns ingen siffra mindre än den största!");
+                        //Console.WriteLine("finns ingen siffra mindre än den största!");
                     }
                     else
                     {
@@ -51,13 +51,24 @@ namespace NastStorsta
                         {
                             nextHighest = userInput;
                         }
+                     //   Console.WriteLine("näst störst: {0}", nextHighest);
+                    }
+                    if(i==9)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        if(highest == nextHighest)
+                        { Console.WriteLine("finns ingen siffra mindre än den största!"); }
+                        else
                         Console.WriteLine("näst störst: {0}", nextHighest);
+                        Console.ResetColor();
                     }
                     i++;
                 }
                 catch (Exception)
                 {
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Skriv in en giltig siffra!");
+                    Console.ResetColor();
                 }
             } while (i < amountOfNumbers);
             
