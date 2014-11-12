@@ -45,7 +45,7 @@ namespace NastStorsta
                             nextHighest = highest;
                             highest = userInput;
                         }
-                        if(userInput <= nextHighest && userInput < highest)
+                        if(userInput == nextHighest && userInput < highest)
                         { nextHighest = userInput; }
                         else if (userInput > nextHighest && userInput < highest || nextHighest > highest && userInput < highest || userInput == highest && userInput != nextHighest && userInput != highest)
                         {
