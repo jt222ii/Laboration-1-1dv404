@@ -12,10 +12,13 @@ namespace NastStorsta
         {
             int amountOfNumbers = 10; // antal nummer användaren ska skriva in
 
+
             int nextHighest = 0;
             int highest = 0;
             int userInput;
             int i = 0;
+
+
 
             do
             {
@@ -26,10 +29,11 @@ namespace NastStorsta
                     if (i == 0)
                     { 
                         highest = userInput;
+                        nextHighest = userInput;
                         Console.WriteLine("näst störst: Finns endast ett värde!");
                     }
-                    else if (userInput == highest)
-                    {
+                    else if (userInput == highest && nextHighest == highest)  // för att man inte ska kunna skriva in 12 rakt igenom och den säger att 12 är näst störst.
+                    {                                                         //När nextHighest har fått ett annat värde än highest körs inte längre denna if sats.
                         nextHighest = highest;
                         highest = userInput;
                         Console.WriteLine("finns ingen siffra mindre än den största!");
@@ -41,6 +45,8 @@ namespace NastStorsta
                             nextHighest = highest;
                             highest = userInput;
                         }
+                        if(userInput <= nextHighest && userInput < highest)
+                        { nextHighest = userInput; }
                         else if (userInput > nextHighest && userInput < highest || nextHighest > highest && userInput < highest || userInput == highest && userInput != nextHighest && userInput != highest)
                         {
                             nextHighest = userInput;
