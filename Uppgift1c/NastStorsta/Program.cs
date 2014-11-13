@@ -47,13 +47,17 @@ namespace NastStorsta
                         }
                         if(userInput == nextHighest && userInput < highest)
                         { nextHighest = userInput; }
-                        else if (userInput > nextHighest && userInput < highest || nextHighest > highest && userInput < highest || userInput == highest && userInput != nextHighest && userInput != highest)
+                        else if (userInput > nextHighest && userInput < highest && userInput != highest || userInput < nextHighest && nextHighest == highest)
                         {
                             nextHighest = userInput;
                         }
+                     /*   else if(userInput < nextHighest && nextHighest == highest)
+                        {
+                            nextHighest = userInput;
+                        }*/
                      //   Console.WriteLine("näst störst: {0}", nextHighest);
                     }
-                    if(i==9)
+                    if(i==amountOfNumbers-1)
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
                         if(highest == nextHighest)
