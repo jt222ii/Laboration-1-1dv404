@@ -20,9 +20,9 @@ namespace RaknaSiffror
             {
                 if(int.Parse(digit.ToString()) == 0)
                 { numberOfZeroes++; }
-                if (int.Parse(digit.ToString()) % 2 == 0 && int.Parse(digit.ToString()) != 0)
+                else if (int.Parse(digit.ToString()) % 2 == 0)
                 { numberOfEven++; }
-                if (int.Parse(digit.ToString()) % 3 == 0 && int.Parse(digit.ToString()) != 0 || int.Parse(digit.ToString()) == 1)
+                else if (int.Parse(digit.ToString()) % 2 != 0)
                 { numberOfOdd++; }
             }
             Console.WriteLine("Nollor: {0}  Jämna: {1}  Udda: {2}",numberOfZeroes,numberOfEven,numberOfOdd);
