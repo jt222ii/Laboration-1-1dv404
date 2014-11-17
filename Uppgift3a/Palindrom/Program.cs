@@ -11,9 +11,7 @@ namespace Palindrom
         static void Main(string[] args)
         {
             Console.WriteLine("Skriv in en något så kollar jag om det är ett palindrom!");
-            string userInput = Console.ReadLine();
-            userInput = userInput.Replace(" ", "");
-            userInput = userInput.ToLower(); 
+            string userInput = Console.ReadLine().Replace(" ", "").ToLower();
             bool palindrome = isPalindrome(userInput);
             if (palindrome == true)
             {
