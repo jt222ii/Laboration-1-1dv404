@@ -6,31 +6,18 @@ using System.Threading.Tasks;
 
 namespace Fraction
 {
-    //        En konstruktor som skapar och initialiserar ett nytt bråktal. 
-    //        Metoderna getNumerator och getDenominator som returnerar täljaren 
-    //      respektive nämnaren. 
-    //      Metoden isNegative som ger true om det är ett negativt bråktal. 
-    //      Metoderna add och multiply som utför motsvarande bråktalsoperation på två 
-    //      bråk och som returnerar ett nytt bråktal. Bestäm själv ett lämpligt sätt att hantera de 
-    //      fall där någon av de inblandade bråktalen har noll i nämnaren. 
-    //      isEqualTo som jämför två Fraction-instanser och ser om de representerar samma 
-    //      bråktal. 
-    //      toString som returnerar en strängrepresentation av bråktalet på form T/
-
-
-    //2.5 timmar 17:30
     class Fraction
     {
-        private decimal _numerator;
-        private decimal _denominator;
-        public decimal getNumerator
+        private int _numerator;
+        private int _denominator;
+        public int getNumerator
         {
             get { return _numerator; }
             set { 
                 
                 _numerator = value; }
         }
-        public decimal getDenominator
+        public int getDenominator
         {
             get { return _denominator; }
             set { 
@@ -39,38 +26,30 @@ namespace Fraction
                 _denominator = value; 
             }
         }
-        public Fraction(decimal numerator, decimal denominator)
+        public Fraction(int numerator, int denominator)
         {
             getNumerator = numerator;
             getDenominator = denominator;
         }
         public Fraction add(Fraction a)
         {
-            decimal newNum = (this.getNumerator * a.getDenominator) + (a.getNumerator * this.getDenominator);
-            decimal newDenom = (this.getDenominator * a.getDenominator);
+            int newNum = (this.getNumerator * a.getDenominator) + (a.getNumerator * this.getDenominator);
+            int newDenom = (this.getDenominator * a.getDenominator);
             Fraction addResult = new Fraction(newNum, newDenom);
             return addResult;
         }
 
         public Fraction multiply(Fraction a)
         {
-            decimal newnum = a.getNumerator * this.getNumerator;
-            decimal newdenom = a.getDenominator * this.getDenominator;
+            int newnum = a.getNumerator * this.getNumerator;
+            int newdenom = a.getDenominator * this.getDenominator;
             Fraction multResult = new Fraction(newnum, newdenom);
             return multResult;
         }
 
-        public bool isNegative()
-        {
-            //om negativ returnera true
-
-            //annars false
-            return false;
-        }
-
         public bool isEqualTo(Fraction a)
         {
-            if (a.getNumerator/a.getDenominator == this.getNumerator/this.getDenominator)
+            if ((decimal)a.getNumerator / (decimal)a.getDenominator == (decimal)this.getNumerator / (decimal)this.getDenominator)
             {
                 return true;
             }
