@@ -57,22 +57,36 @@ namespace Fraction
         }
         static int userInput(string prompt)
         {
-            Console.WriteLine(prompt);
-            return int.Parse(Console.ReadLine());
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine(prompt);
+                    return int.Parse(Console.ReadLine());
+                }
+                catch { Console.WriteLine("felaktigt format! försök igen"); }
+            }
 
         }
 
         static int menu()
         {
-            Console.WriteLine("0. Avsluta 1. Addera Bråktal 2. Multiplicera Bråktal 3. Jämför Bråktal");
-            int userChoice = int.Parse(Console.ReadLine());
-            if  (userChoice < 0 || userChoice > 3)
-            { 
-                Console.WriteLine("Du valde inte ett giltigt alternativ... stänger av programmet");
-                return 0;  
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("0. Avsluta 1. Addera Bråktal 2. Multiplicera Bråktal 3. Jämför Bråktal");
+                    int userChoice = int.Parse(Console.ReadLine());
+                    if (userChoice < 0 || userChoice > 3)
+                    {
+                        Console.WriteLine("Du valde inte ett giltigt alternativ... stänger av programmet");
+                        return 0;
+                    }
+                    else
+                        return userChoice;
+                }
+                catch { Console.WriteLine("Felaktigt format försök igen!"); } 
             }
-            else
-            return userChoice;
         }
 
         static void viewResult(string prompt, Fraction a)
